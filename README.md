@@ -10,12 +10,12 @@
      ```p
      python -m venv env
      ```
-  Aktifkan virtual environtment
+  3) Aktifkan virtual environtment
     ```p
     env\Scripts\activate.bat
     ```
-  - Virtual environment berhasil diaktifkan ditandai dengan `(env)` pada bagian awal input command line. Pastikan virtual environment tetap berjalan.
-  - Di direktori yang sama, buat berkas `requirements.txt` yang berisi:
+  4) Virtual environment berhasil diaktifkan ditandai dengan `(env)` pada bagian awal input command line. Pastikan virtual environment   tetap berjalan.
+  5) Di direktori yang sama, buat berkas `requirements.txt` yang berisi:
     ```
     django
     gunicorn
@@ -24,7 +24,7 @@
     requests
     urllib3
     ```
-  - Unduh depedencies dengan menjalankan kode di command prompt
+  6) Unduh depedencies dengan menjalankan kode di command prompt
     ```p
     pip install -r requirements.txt
     ```
