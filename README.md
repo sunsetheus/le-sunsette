@@ -7,13 +7,13 @@
   
   1) Buat direktori bernama `Le-Sunsette` pada local.
   2) Di dalam direktori tersebut, buka command prompt dan buat virtual environemnt baru dengan menjalankan:
-     ```
+     ```p
      python -m venv env
      ```
   3) Aktifkan virtual environtment
-    ```p
-    env\Scripts\activate.bat
-    ```
+     ```p
+     env\Scripts\activate.bat
+     ```
   4) Virtual environment berhasil diaktifkan ditandai dengan `(env)` pada bagian awal input command line. Pastikan virtual environment   tetap berjalan.
   5) Di direktori yang sama, buat berkas `requirements.txt` yang berisi:
     ```
