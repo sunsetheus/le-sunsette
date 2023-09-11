@@ -8,7 +8,7 @@
 <summary>[x] Membuat sebuah proyek Django baru. (pov pengguna Windows)</summary>
   - Buat direktori bernama `Le-Sunsette` pada local
   - Di dalam direktori tersebut, buka command prompt dan buat virtual environemnt baru dengan menjalankan:
-    ```
+    ```p
     python -m venv env
     ```
   - Aktifkan virtual environtment
