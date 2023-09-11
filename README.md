@@ -2,7 +2,7 @@
 [Preview Website]()
 
 <details>
-<summary>## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) </summary>
+##<summary>1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) </summary>
 
 <details>
 <summary>- [x] Membuat sebuah proyek Django baru. (pov pengguna Windows)</summary>
