@@ -52,7 +52,7 @@
      python manage.py startapp main
      ```
   2) Tambahkan `'main'` untuk variabel `INSTALLED_APPS` pada file `settings.py`, seperti:
-     ```
+     ```python
      INSTALLED_APPS = [
        ...,
        'main',
@@ -97,7 +97,7 @@
      ```
  
   2) Tambahkan fungsi `show-main` yang menampilkan nama aplikasi, serta nama dan kelas mahasiswa
-     ```
+     ```python
      def show_main(request):
        context = {
           'nama_mahasiswa': 'William',
@@ -109,7 +109,7 @@
           'price': 35000
        }
 
-     return render(request, "main.html", context)
+       return render(request, "main.html", context)
      ```
 
 3) Buka berkas `main.html` yang dibuat sebelumnya, ubah tampilannya dengan penambahan context (kreasikan bentuk layouting yang diinginkan)
@@ -120,7 +120,7 @@
   <summary>Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py (langkah 4).</summary>
 
   1) Buat berkas `urls.py` di dalam direktori `main` dan isi dengan kode berikut:
-     ```
+     ```python
      from django.urls import path
      from main.views import show_main
 
