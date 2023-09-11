@@ -3,7 +3,7 @@
 
 ## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) 
 <details>
-<summary>Membuat sebuah proyek Django baru. (pov pengguna Windows)</summary>
+  <summary>Membuat sebuah proyek Django baru. (pov pengguna Windows)</summary>
   
   1) Buat direktori bernama `Le-Sunsette` pada local.
   2) Di dalam direktori tersebut, buka command prompt dan buat virtual environemnt baru dengan menjalankan:
@@ -32,7 +32,7 @@
      ```p
      django-admin startproject le_sunsette .
      ```
-  8) Untuk keperluan deployment, tambahkan `"*"` bagian `ALLOWED_HOSTS` pada file `settings.py`, seperti:
+  8) Untuk keperluan deployment, tambahkan `"*"` untuk bagian `ALLOWED_HOSTS` pada file `settings.py`, seperti:
      ```
      ...
      ALLOWED_HOSTS = ["*"]
@@ -45,12 +45,40 @@
 </details>
 
 <details>
-  <summary>
-    
-    Membuat aplikasi dengan nama `main` pada proyek tersebut.
-    
-  </summary>
+<summary>
   
+Membuat aplikasi dengan nama `main` pada proyek tersebut. 
+</summary>
+
+  1) Buat direktori `main` untuk membuat aplikasi baru dengan menjalankan:
+     ```
+     python manage.py startapp main
+     ```
+  2) Tambahkan `'main'` untuk bagian `INSTALLED_APPS` pada file `settings.py`, seperti:
+     ```
+     INSTALLED_APPS = [
+       ...,
+       'main',
+       ...
+     ]
+     ```
+</details>
+
+<details>
+<summary>
+  
+Melakukan routing pada proyek agar dapat menjalankan aplikasi `main`.
+</summary>
+
+  1) Buka berkas `urls.py` di dalam direktori `le_sunsette` dan impor fungsi `include`:
+     ```python
+     ...
+     from django.urls import path, include
+     ...
+     ```
+
+
+
 </details>
 
 <details><summary></summary></details>
@@ -63,20 +91,9 @@
 
 <details><summary></summary></details>
 
-<details><summary></summary></details>
+
     
   
-  
-[x] Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
-[x]
-[x]
-[x]
-[x]
-[x]
-
-
-</details>
-
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 -
 
