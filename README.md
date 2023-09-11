@@ -7,44 +7,66 @@
   
   1) Buat direktori bernama `Le-Sunsette` pada local.
   2) Di dalam direktori tersebut, buka command prompt dan buat virtual environemnt baru dengan menjalankan:
-     ```p
+     ```
      python -m venv env
      ```
   3) Aktifkan virtual environtment
-     ```p
+     ```
      env\Scripts\activate.bat
      ```
   4) Virtual environment berhasil diaktifkan ditandai dengan `(env)` pada bagian awal input command line. Pastikan virtual environment   tetap berjalan.
   5) Di direktori yang sama, buat berkas `requirements.txt` yang berisi:
-    ```
-    django
-    gunicorn
-    whitenoise
-    psycopg2-binary
-    requests
-    urllib3
-    ```
+     ```
+     django
+     gunicorn
+     whitenoise
+     psycopg2-binary
+     requests
+     urllib3
+     ```
   6) Unduh depedencies dengan menjalankan kode di command prompt
-    ```p
-    pip install -r requirements.txt
-    ```
-  - Pada direktori yang sama, buat direktori project Django bernama `le_sunsette` dengan menjalankan perintah (pastikan terdapat `.` pada akhir kode):
-    ```p
-    django-admin startproject le_sunsette .
-    ```
-  - Untuk keperluan deployment, tambahkan `"*"` bagian `ALLOWED_HOSTS` pada file `settings.py`, seperti:
-    ```
-    ...
-    ALLOWED_HOSTS = ["*"]
-    ...
-    ```
-  - Jalankan
-
+     ```
+     pip install -r requirements.txt
+     ```
+  7) Pada direktori yang sama, buat direktori project Django bernama `le_sunsette` dengan menjalankan perintah (pastikan terdapat `.` pada akhir kode):
+     ```p
+     django-admin startproject le_sunsette .
+     ```
+  8) Untuk keperluan deployment, tambahkan `"*"` bagian `ALLOWED_HOSTS` pada file `settings.py`, seperti:
+     ```
+     ...
+     ALLOWED_HOSTS = ["*"]
+     ...
+     ```
+  9) Jalankan server Django dengan perintah:
+     ```
+     python manage.py runserver
+     ```
 </details>
+
+<details>
+  <summary>
+    
+    Membuat aplikasi dengan nama `main` pada proyek tersebut.
+    
+  </summary>
+  
+</details>
+
+<details><summary></summary></details>
+
+<details><summary></summary></details>
+
+<details><summary></summary></details>
+
+<details><summary></summary></details>
+
+<details><summary></summary></details>
+
+<details><summary></summary></details>
     
   
   
-- [x] Membuat aplikasi dengan nama `main` pada proyek tersebut.
 [x] Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
 [x]
 [x]
