@@ -63,24 +63,7 @@
   4) Buat berkas `main.html` di dalam direktor `templates` yang isinya disesuaikan dengan tampilan yang ingin dilihat client (bagian ini nantinya akan diubah pada tahap selanjutnya)
 </details>
 
-<details>
-  <summary>Melakukan routing pada proyek agar dapat menjalankan aplikasi main (langkah 5).</summary>
-  
-  1) Buka berkas `urls.py` di dalam direktori `le_sunsette` dan impor fungsi `include`:
-     ```python
-     ...
-     from django.urls import path, include
-     ...
-     ```
-  2) Tambahkan rute URL untuk ke `main` dengan menambahkan `from django.urls import path, include` untuk variabel `urlpatterns`, seperti:
-     ```
-     urlpatterns = [
-       ...
-       path('main/', include('main.urls')),
-       ...
-     ]
-     ```
-</details>
+
 
 <details>
   <summary>Membuat model pada aplikasi main (langkah 2).</summary>
@@ -150,7 +133,29 @@
 </details>
 
 <details>
-  <summary>Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.</summary>
+  <summary>Melakukan routing pada proyek agar dapat menjalankan aplikasi main (langkah 5).</summary>
+  
+  1) Buka berkas `urls.py` di dalam direktori `le_sunsette` dan impor fungsi `include`:
+     ```python
+     ...
+     from django.urls import path, include
+     ...
+     ```
+  2) Tambahkan rute URL untuk ke `main` dengan menambahkan `from django.urls import path, include` untuk variabel `urlpatterns`, seperti:
+     ```
+     urlpatterns = [
+       ...
+       path('main/', include('main.urls')),
+       ...
+     ]
+     ```
+</details>
+
+<details>
+  <summary>Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+  
+  
+  </summary>
 
 
 </details>
