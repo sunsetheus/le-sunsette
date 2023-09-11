@@ -5,8 +5,8 @@
 <summary>## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) </summary>
 
 <details>
-<summary>[x] Membuat sebuah proyek Django baru. (pov pengguna Windows)</summary>
-  - Buat direktori bernama `Le-Sunsette` pada local
+<summary>- [x] Membuat sebuah proyek Django baru. (pov pengguna Windows)</summary>
+  - Buat direktori bernama `Le-Sunsette` pada local.
   - Di dalam direktori tersebut, buka command prompt dan buat virtual environemnt baru dengan menjalankan:
     ```p
     python -m venv env
@@ -45,7 +45,7 @@
     
   
   
-[x] Membuat aplikasi dengan nama `main` pada proyek tersebut.
+- [x] Membuat aplikasi dengan nama `main` pada proyek tersebut.
 [x] Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
 [x]
 [x]
