@@ -297,15 +297,21 @@
        ...
      ]
      ```
-
   3) Buka [http://localhost:8000/main/](http://localhost:8000/main/) untuk mengakses hasil pekerjaan (pastikan project sudah di-run)
 </details>
 
 <details>
-  <summary>Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
-  
-  
-  </summary>
+  <summary>Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.</summary>
+
+  1) Buat akun Adaptable.io menggunakan akun Github yang membuat repository pada tahap awal
+  2) Setelah login, klik `New App` dan pilih `Connect an Existing Repository`
+  3) Pilih repository `le-sunsette` dan klik pilihan branch `main`
+  4) Kemudian, pilih template template deployment `Python App Template`
+  5) Pilih database type `PostgreSQL`
+  6) Pilih versi python sesuai dengan spesifikasi aplikasi, jalankan `python --version` untuk mengecek versi python. (Saya menggunakan versi `3.11`)
+  7) Pada bagian start command, masukkan `python manage.py migrate && gunicorn le_sunsette.wsgi`
+  8) Masukkan nama aplikasi (nama aplikasi juga sekaligus menjadi nama domain website proyek ini)
+  9) Centang bagian `HTTP Listener on PORT`, lalu klik `DEPLOY APP`
 
 
 </details>
@@ -319,11 +325,11 @@
 
     
   
-2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+## 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 -
 
-3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+## 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 -
 
-4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
+## 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 -
