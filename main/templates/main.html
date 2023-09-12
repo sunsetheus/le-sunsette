@@ -1,3 +1,61 @@
-<h1>Le-Sunsette</h1>
-<p>Owner: William</p>
-<p>Class of: PBP D</p>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- font download -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&family=Poppins:wght@500&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <header class="flex flex-col justify-center px-5 py-[100px] bg-gradient-to-r from-[#010413] to-[#0a1f2b] text-center align-center text-[#f5f5f5] gap-2" style="font-family: Lora, serif">
+        <h1 class="text-4xl font-semibold" >Le Sunsette</h1>
+        <h1 class="text-[18px] text-gray-300 font-normal">Only serves authentic french cousine</h1>
+    </header>
+
+    <main class="flex flex-col px-[60px] py-[40px] gap-[40px]">
+        <section class="flex gap-5 text-[14px] justify-center">
+            <chip class=" flex border-[1px] rounded-[20px] py-[6px] px-[12px] min-w-[80px] border-[#010413] text-center align-center justify-center">
+                All
+            </chip>
+
+            <chip class=" flex border-[1px] rounded-[20px] py-[6px] px-[12px] min-w-[80px] border-[#010413] text-center align-center justify-center">
+                Main Course
+            </chip>
+
+            <chip class=" flex border-[1px] rounded-[20px] py-[6px] px-[12px] min-w-[80px] border-[#010413] text-center align-center justify-center">
+                Pastry
+            </chip>
+        </section>
+
+            
+        <!-- container -->
+        <section class="flex">
+            <div class="flex flex-col border-[1px] rounded-[12px] p-[12px] border-gray-400 justify-center max-w-[300px]">
+                <!-- <div> -->
+                    <div class="flex justify-between text-[1.2rem] font-semibold" style="font-family: Lora, serif">
+                        <h2 class="">{{name}}</h2>
+                        <h2>${{price}}</h2>
+                    </div>
+
+                    <p class="text-[12px] font-semibold">Current stock: {{amount}}</p>
+                    <p class="text-[14px] pt-[10px]">{{description}}</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="flex flex-col px-[60px] py-[40px] text-[#f5f5f5]">
+        <p>Nama {{nama_mahasiswa}}</p>
+        <p>Kelas {{kelas_mahasiswa}}</p>
+    </footer>
+
+</body>
+
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@ def show_main(request):
      'name': 'Plain croissant',
      'amount': 6,
      'description': 'Classic type croissant with layers of buttery dough, each bite reveals a harmony of flaky and melted buttery. Savor the simplicity of pure delight – the perfect companion to your morning coffee or a snack',
-     'price': 35000
+     'price': 2.2
   }
 
   return render(request, "main.html", context)

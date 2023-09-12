@@ -4,5 +4,5 @@ class Item(models.Model):
   name = models.CharField(max_length=255)
   amount = models.IntegerField()
   description = models.TextField()
-  price = models.IntegerField()
+  price = models.FloatField()
   type = models.CharField(max_length=255)
