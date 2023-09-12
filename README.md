@@ -336,7 +336,7 @@ MVC (Model, View, Data) merupakan konsep arsitektur dalam pembuatan aplikasi yan
 
 MVT (Model, View, Template) merupakan konsep arsitektur dalam pembuatan aplikasi yang memisahkan kode menjadi tiga bagian, yaitu:
 1. Model: Bagian yang berperan untuk mengelola data (berhubungan langsung dengan database)
-2. View: Bagian yang berperan untuk mengontrol logic yang berhubungan dengan menerima request dan mengembalikan response (rendering template berdasarkan request)
+2. View: Bagian yang berperan untuk mengontrol logic yang berhubungan dengan menerima request dan mengembalikan response (rendering template berdasarkan request)
 3. Template: Bagian yang berperan untuk menampilkan tampilan kepada pengguna 
 
 MVVM (Model, View, ViewModel) merupakan konsep arsitektur dalam pembuatan aplikasi yang memisahkan kode menjadi tiga bagian, yaitu:
