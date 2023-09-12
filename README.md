@@ -285,7 +285,7 @@
      ...
      ```
   2) Tambahkan rute URL untuk ke `main` dengan menambahkan `from django.urls import path, include` untuk variabel `urlpatterns`, seperti:
-     ```
+     ```python
      urlpatterns = [
        ...
        path('main/', include('main.urls')),
@@ -316,13 +316,30 @@
 </details>
 
 
-    
-  
+
 ## 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
--
+
+
 
 ## 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
--
+Penggunaan virtual environmemt pada proyek Django sangat direkomendasikan karena virtual environment membuat lingkungan atau modul yang spesifik dan terisolasi. Artinya, setiap proyek memiliki virtual environment-nya masing-masing sehingga depedensi yang sudah dibuat tidak akan terpengaruh faktor luar (contohnya terjadi perubahan versi yang menyebabkan ketidakcocokan versi jika terjadi perubahan kode). 
+
+Sebenarnya pembuatan aplikasi web berbasis Django tanpa menggunakan virtual environment bisa-bisa saja (tetapi sangat tidak direkomendasikan) dan memungkinkan terjadi konflik versi (perlu mengunduh lagi versi Django yang sesuai). Virtual environment hanya berperan "membantu" dalam pengerjaan berbagai proyek Django, bukan sebagai keharusan.
+
+
 
 ## 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
--
+MVC (Model, View, Data) merupakan konsep arsitektur dalam pembuatan aplikasi yang memisahkan kode menjadi tiga bagian, yaitu:
+1. Model: Bagian yang berperan untuk mengelola data (berhubungan langsung dengan database)
+2. View: Bagian yang berperan untuk menampilkan informasi dan tampilan kepada pengguna
+3. Controller: Bagian yang berperan untuk menghubungkan model dan view untuk memproses logic dan proses request 
+
+MVT (Model, View, Template) merupakan konsep arsitektur dalam pembuatan aplikasi yang memisahkan kode menjadi tiga bagian, yaitu:
+1. Model: Bagian yang berperan untuk mengelola data (berhubungan langsung dengan database)
+2  View: Bagian yang berperan untuk mengontrol logic yang berhubungan dengan menerima request dan mengembalikan response (rendering template berdasarkan request)
+3. Template: Bagian yang berperan untuk menampilkan tampilan kepada pengguna 
+
+MVVM (Model, View, ViewModel) merupakan konsep arsitektur dalam pembuatan aplikasi yang memisahkan kode menjadi tiga bagian, yaitu:
+1. Model: Bagian yang berperan untuk mengelola data
+2. View: Berperan sebagai pengatur bagian informasi akan ditampilkan kepada penggunana
+3. ViewModel: Bagian yang berperan sebagai perantara model dan view, spesifiknya adalah mengelola data pada model sehingga dapat ditampilkan pada view.
