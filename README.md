@@ -217,7 +217,7 @@
   <summary>Membuat model pada aplikasi main (langkah 2).</summary>
   
   1) Buka berkas `models.py` pada direktori `main` dan isi dengan kode:
-     ```pyhton
+     ```python
      from django.db import models
 
      class Item(models.Model):
