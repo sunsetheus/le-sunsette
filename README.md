@@ -3,9 +3,157 @@
 
 ## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) 
 <details>
-  <summary>Membuat sebuah proyek Django baru. (pov pengguna Windows)</summary>
+  <summary>Set up repo</summary>
+
+  1) Buat repository Github bernama `le-sunsette` dengan visibilitas public dan pilih penambahan file Readme.md
+  2) Buat file bernama `.gitignore` yang berisi:
+     ```python
+     # Django
+     *.log
+     *.pot
+     *.pyc
+     __pycache__
+     db.sqlite3
+     media
+     
+     # Backup files
+     *.bak 
+    
+     # If you are using PyCharm
+     # User-specific stuff
+     .idea/**/workspace.xml
+     .idea/**/tasks.xml
+     .idea/**/usage.statistics.xml
+     .idea/**/dictionaries
+     .idea/**/shelf
+     
+     # AWS User-specific
+     .idea/**/aws.xml
+    
+     # Generated files
+     .idea/**/contentModel.xml
+    
+     # Sensitive or high-churn files
+     .idea/**/dataSources/
+     .idea/**/dataSources.ids
+     .idea/**/dataSources.local.xml
+     .idea/**/sqlDataSources.xml
+     .idea/**/dynamic.xml
+     .idea/**/uiDesigner.xml
+     .idea/**/dbnavigator.xml
+     
+     # Gradle
+     .idea/**/gradle.xml
+     .idea/**/libraries
+    
+     # File-based project format
+     *.iws
+    
+     # IntelliJ
+     out/
+    
+     # JIRA plugin
+     atlassian-ide-plugin.xml
+    
+     # Python
+     *.py[cod] 
+     *$py.class 
+    
+     # Distribution / packaging 
+     .Python build/ 
+     develop-eggs/ 
+     dist/ 
+     downloads/ 
+     eggs/ 
+     .eggs/ 
+     lib/ 
+     lib64/ 
+     parts/ 
+     sdist/ 
+     var/ 
+     wheels/ 
+     *.egg-info/ 
+     .installed.cfg 
+     *.egg 
+     *.manifest 
+     *.spec 
+    
+     # Installer logs 
+     pip-log.txt 
+     pip-delete-this-directory.txt 
+     
+     # Unit test / coverage reports 
+     htmlcov/ 
+     .tox/ 
+     .coverage 
+     .coverage.* 
+     .cache 
+     .pytest_cache/ 
+     nosetests.xml 
+     coverage.xml 
+     *.cover 
+     .hypothesis/ 
+     
+     # Jupyter Notebook 
+     .ipynb_checkpoints 
+    
+     # pyenv 
+     .python-version 
+    
+     # celery 
+     celerybeat-schedule.* 
+    
+     # SageMath parsed files 
+     *.sage.py 
+    
+     # Environments 
+     .env 
+     .venv 
+     env/ 
+     venv/ 
+     ENV/ 
+     env.bak/ 
+     venv.bak/ 
+    
+     # mkdocs documentation 
+     /site 
+    
+     # mypy 
+     .mypy_cache/ 
+    
+     # Sublime Text
+     *.tmlanguage.cache 
+     *.tmPreferences.cache 
+     *.stTheme.cache 
+     *.sublime-workspace 
+     *.sublime-project 
+    
+     # sftp configuration file 
+     sftp-config.json 
+    
+     # Package control specific files Package 
+     Control.last-run 
+     Control.ca-list 
+     Control.ca-bundle 
+     Control.system-ca-bundle 
+     GitHub.sublime-settings 
+    
+     # Visual Studio Code
+     .vscode/* 
+     !.vscode/settings.json 
+     !.vscode/tasks.json 
+     !.vscode/launch.json 
+     !.vscode/extensions.json 
+     .history
+     ```
+  3) Lakukan command `git clone` dengan url repository tersebut, pastikan sudah berada di direktori lokal yang diinginkan
   
-  1) Buat direktori bernama `Le-Sunsette` pada local.
+</details>
+
+<details>
+  <summary>Membuat sebuah proyek Django baru. (pov pengguna Windows)</summary>
+  1) Masuk ke dalam direktori yang sudah di-clone
+
   2) Di dalam direktori tersebut, buka command prompt dan buat virtual environemnt baru dengan menjalankan:
      ```
      python -m venv env
@@ -69,7 +217,7 @@
   <summary>Membuat model pada aplikasi main (langkah 2).</summary>
   
   1) Buka berkas `models.py` pada direktori `main` dan isi dengan kode:
-     ```pyhton
+     ```python
      from django.db import models
 
      class Item(models.Model):
@@ -101,11 +249,11 @@
      def show_main(request):
        context = {
           'nama_mahasiswa': 'William',
-          'kelas_mahasiswa': 'PBP D'
-          'nama_aplikasi: 'le-sunsette',
-          'name': 'Plain croissant'
-          'amount': 6
-          'description: 'Classic type croissant with layers of buttery dough, each bite reveals a harmony of flaky and melted buttery. Savor the simplicity of pure delight – the perfect companion to your morning coffee or a snack'
+          'kelas_mahasiswa': 'PBP D',
+          'nama_aplikasi': 'le-sunsette',
+          'name': 'Plain croissant',
+          'amount': 6,
+          'description': 'Classic type croissant with layers of buttery dough, each bite reveals a harmony of flaky and melted buttery. Savor the simplicity of pure delight – the perfect companion to your morning coffee or a snack',
           'price': 35000
        }
 
@@ -149,6 +297,8 @@
        ...
      ]
      ```
+
+  3) Buka [http://localhost:8000/main/](http://localhost:8000/main/) untuk mengakses hasil pekerjaan (pastikan project sudah di-run)
 </details>
 
 <details>
