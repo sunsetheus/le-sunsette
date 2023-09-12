@@ -162,7 +162,7 @@
      ```
      env\Scripts\activate.bat
      ```
-  4) Virtual environment berhasil diaktifkan ditandai dengan `(env)` pada bagian awal input command line. Pastikan virtual environment   tetap berjalan.
+  4) Virtual environment berhasil diaktifkan ditandai dengan `(env)` pada bagian awal input command line. Pastikan virtual environment tetap berjalan.
   5) Di direktori yang sama, buat berkas `requirements.txt` yang berisi:
      ```
      django
@@ -193,7 +193,7 @@
 </details>
 
 <details>
-  <summary>Membuat aplikasi dengan nama main pada proyek tersebut (langkah 1).</summary>
+  <summary>Membuat aplikasi dengan nama main pada proyek tersebut.</summary>
   
   1) Buat direktori `main` untuk membuat aplikasi baru dengan menjalankan:
      ```
@@ -211,10 +211,8 @@
   4) Buat berkas `main.html` di dalam direktor `templates` yang isinya disesuaikan dengan tampilan yang ingin dilihat client (bagian ini nantinya akan diubah pada tahap selanjutnya)
 </details>
 
-
-
 <details>
-  <summary>Membuat model pada aplikasi main (langkah 2).</summary>
+  <summary>Membuat model pada aplikasi main.</summary>
   
   1) Buka berkas `models.py` pada direktori `main` dan isi dengan kode:
      ```python
@@ -233,11 +231,10 @@
      python manage.py makemigrations
      python manage.py migrate
      ```
-
 </details>
 
 <details>
-  <summary>Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu. (nomor 3)</summary>
+  <summary>Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.</summary>
 
   1) Tambahkan baris impor berikut pada berkas `views.py` di direktori aplikasi `main`:
      ```python
@@ -261,11 +258,10 @@
      ```
 
 3) Buka berkas `main.html` yang dibuat sebelumnya, ubah tampilannya dengan penambahan context (kreasikan bentuk layouting yang diinginkan)
-     
 </details>
 
 <details>
-  <summary>Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py (langkah 4).</summary>
+  <summary>Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.</summary>
 
   1) Buat berkas `urls.py` di dalam direktori `main` dan isi dengan kode berikut:
      ```python
@@ -277,11 +273,10 @@
        path('', show_main, name='show_main'),
      ]
      ```
-
 </details>
 
 <details>
-  <summary>Melakukan routing pada proyek agar dapat menjalankan aplikasi main (langkah 5).</summary>
+  <summary>Melakukan routing pada proyek agar dapat menjalankan aplikasi main.</summary>
   
   1) Buka berkas `urls.py` di dalam direktori `le_sunsette` dan impor fungsi `include`:
      ```python
@@ -312,14 +307,12 @@
   7) Pada bagian start command, masukkan `python manage.py migrate && gunicorn le_sunsette.wsgi`
   8) Masukkan nama aplikasi (nama aplikasi juga sekaligus menjadi nama domain website proyek ini)
   9) Centang bagian `HTTP Listener on PORT`, lalu klik `DEPLOY APP`
-
-
 </details>
 
 <details>
   <summary>Membuat sebuah README.md yang berisi tautan menuju aplikasi Adaptable yang sudah di-deploy, serta jawaban dari beberapa pertanyaan berikut.</summary>
 
-
+  1) Update `README.md` dengan tautan hasil deploy dan jawab pertanyaan yang diberikan
 </details>
 
 
