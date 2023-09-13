@@ -10,11 +10,11 @@
 
 <body>
     <header class="flex flex-col justify-center px-5 py-[100px] bg-gradient-to-r from-[#010413] to-[#0a1f2b] text-center align-center text-[#f5f5f5] gap-2" style="font-family: Lora, serif">
-        <h1 class="text-4xl font-semibold" >Le Sunsette</h1>
+        <h1 class="text-4xl font-semibold" >{{nama_aplikasi}}</h1>
         <h1 class="text-[18px] text-gray-300 font-normal">Only serves authentic french cousine</h1>
     </header>
 
-    <main class="flex flex-col px-[60px] py-[40px] gap-[40px]">
+    <main class="flex flex-col px-[60px] py-[30px] gap-[40px]">
         <section class="flex gap-5 text-[14px] justify-center">
             <chip class=" flex border-[1px] rounded-[20px] py-[6px] px-[12px] min-w-[80px] border-[#010413] text-center align-center justify-center">
                 All
@@ -45,9 +45,9 @@
         </section>
     </main>
 
-    <footer class="flex flex-col px-[60px] py-[40px] text-[#f5f5f5]">
-        <p>Nama {{nama_mahasiswa}}</p>
-        <p>Kelas {{kelas_mahasiswa}}</p>
+    <footer class="flex flex-col px-[60px] font-semibold">
+        <p>Nama: {{nama_mahasiswa}}</p>
+        <p>Kelas: {{kelas_mahasiswa}}</p>
     </footer>
 
 </body>
