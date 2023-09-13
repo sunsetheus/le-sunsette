@@ -318,7 +318,8 @@
 
 
 ## 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-
+![bagan](https://cdn.discordapp.com/attachments/811595942159056919/1151334804097347604/image.png)
+Ketika client mengakses aplikasi Django melalui browser, browser menerima HTTP Request yang akan diteruskan oleh Django ke `urls.py` untuk dicocokan pattern url-nya. Setelah ditemukan url yang cocok, request akan diteruskan ke `views.py` yang sesuai. Views.py akan melakukan rendering berdasarkan request sekaligus mengambil data dari database melalui `models.py` dan mengembalikan response berupa `<filename>.html (berkas html).`
 
 
 ## 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
