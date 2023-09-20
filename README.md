@@ -694,10 +694,17 @@ JSON lebih sering digunakan dalam pertukaran data antara aplikasi web modern ada
       ```
 </details>
 
-## 5. Screenshot Postman
+## 5. Screenshot Postman (pastikan anda memiliki akses internet untuk melihat screenshot)
 1) HTML
-
-
+![html](https://cdn.discordapp.com/attachments/811595942159056919/1153872414208426034/image.png)
+2) XML
+![xml](https://cdn.discordapp.com/attachments/811595942159056919/1153872654927929455/image.png)
+3) JSON
+![json](https://cdn.discordapp.com/attachments/811595942159056919/1153870019411849347/image.png)
+4) XML by ID
+![xml-by-id](https://cdn.discordapp.com/attachments/811595942159056919/1153872630869397565/image.png)
+5) JSON by ID
+![json-by-id](https://cdn.discordapp.com/attachments/811595942159056919/1153872647604670484/image.png)
 
 
 
