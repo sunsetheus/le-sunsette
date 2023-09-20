@@ -2,10 +2,10 @@
 [Preview Website]()
 
 ### Navigator Tugas
-1. [Tugas 1](#1)
-2. [Tugas 2](#2)
+1. [Tugas 2](#2)
+2. [Tugas 3](#3)
 
-# <a id="1">Tugas 1</a>
+# <a id="2">Tugas 2</a>
 ## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) 
 <details>
   <summary>Set up repo</summary>
@@ -350,7 +350,7 @@ MVVM (Model, View, ViewModel) merupakan konsep arsitektur dalam pembuatan aplika
 
 
 
-# <a id="2">Tugas 2</a>
+# <a id="3">Tugas 3</a>
 ## 1. Apa perbedaan antara form POST dan form GET dalam Django?
 Form `POST` umumnya digunakan untuk menambahkan data dari suatu database melalui pengiriman data input (berbentuk request), jika request valid, maka database akan menambahkan data baru sesuai input. 
 
