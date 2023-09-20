@@ -1,56 +1,44 @@
-<head>
-    <script src="https://cdn.tailwindcss.com"></script>
+{% extends 'base.html' %}
 
-    <!-- font download -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&family=Poppins:wght@500&display=swap" rel="stylesheet">
-</head>
+{% block content %}
 
+<main class="flex flex-col px-[80px] py-[50px] gap-[30px]">
+    <section class="flex text-[14px] justify-center">
 
-<body>
-    <header class="flex flex-col justify-center px-5 py-[100px] bg-gradient-to-r from-[#010413] to-[#0a1f2b] text-center align-center text-[#f5f5f5] gap-2" style="font-family: Lora, serif">
-        <h1 class="text-4xl font-semibold" >{{nama_aplikasi}}</h1>
-        <h1 class="text-[18px] text-gray-300 font-normal">Only serves authentic french cousine</h1>
-    </header>
+        <a href="{% url 'main:add_item' %}">
+            <button class="bg-[#0a1f2b] text-[#f5f5f5] px-[24px] py-[12px] rounded-[6px] text-[16px]">
+                Add Menu
+            </button>
+        </a>
+    </section>
 
-    <main class="flex flex-col px-[60px] py-[30px] gap-[40px]">
-        <section class="flex gap-5 text-[14px] justify-center">
-            <chip class=" flex border-[1px] rounded-[20px] py-[6px] px-[12px] min-w-[80px] border-[#010413] text-center align-center justify-center">
-                All
-            </chip>
+    <!-- reference: https://fedingo.com/how-to-get-length-of-list-in-django-template/ -->
+    <h1 class="flex justify-center text-[20px] font-medium">We have {{menus|length}} unique menu(s) here</h1>
 
-            <chip class=" flex border-[1px] rounded-[20px] py-[6px] px-[12px] min-w-[80px] border-[#010413] text-center align-center justify-center">
-                Main Course
-            </chip>
+    <table class="flex flex-col w-full border-gray-300 border-[1px] rounded-[12px] px-[25px] py-[20px]">
+        <thead class="flex flex-col w-full border-b-gray-300 border-b-[1px] pb-[20px] px-[12px]">
+            <tr class="flex  text-center justify-center items-center">
+                <th class="flex w-full justify-center">Name</th>
+                <th class="flex w-full justify-center">Amount</th>
+                <th class="flex w-full justify-center">Description</th>
+                <th class="flex w-full justify-center">Price</th>
+            </tr>
+        </thead>
 
-            <chip class=" flex border-[1px] rounded-[20px] py-[6px] px-[12px] min-w-[80px] border-[#010413] text-center align-center justify-center">
-                Pastry
-            </chip>
-        </section>
+        <tbody class="flex flex-col w-full gap-[14px] pt-[20px] px-[12px]">
+            {% for menu in menus %}
+            <tr class="flex text-center justify-center items-center">
+                <td class="flex w-full justify-center">{{menu.name}}</td>
+                <td class="flex w-full justify-center">{{menu.amount}}</td>
+                <td class="flex w-full justify-center">{{menu.description}}</td>
+                <td class="flex w-full justify-center">${{menu.price}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
 
-            
-        <!-- container -->
-        <section class="flex">
-            <div class="flex flex-col border-[1px] rounded-[12px] p-[12px] border-gray-400 justify-center max-w-[300px]">
-                <!-- <div> -->
-                    <div class="flex justify-between text-[1.2rem] font-semibold" style="font-family: Lora, serif">
-                        <h2 class="">{{name}}</h2>
-                        <h2>${{price}}</h2>
-                    </div>
-
-                    <p class="text-[12px] font-semibold">Current stock: {{amount}}</p>
-                    <p class="text-[14px] pt-[10px]">{{description}}</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="flex flex-col px-[60px] font-semibold">
-        <p>Nama: {{nama_mahasiswa}}</p>
-        <p>Kelas: {{kelas_mahasiswa}}</p>
-    </footer>
-
-</body>
+{% endblock content %}
 
 
 

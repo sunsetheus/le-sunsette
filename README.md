@@ -1,6 +1,11 @@
 # Le-Sunsette
 [Preview Website]()
 
+### Navigator Tugas
+1. [Tugas 1](#1)
+2. [Tugas 2](#2)
+
+# <a id="1">Tugas 1</a>
 ## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) 
 <details>
   <summary>Set up repo</summary>
@@ -316,7 +321,6 @@
 </details>
 
 
-
 ## 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 ![bagan](https://cdn.discordapp.com/attachments/811595942159056919/1151334804097347604/image.png)
 Ketika client mengakses aplikasi Django melalui browser, browser menerima HTTP Request yang akan diteruskan oleh Django ke `urls.py` untuk dicocokan pattern url-nya. Setelah ditemukan url yang cocok, request akan diteruskan ke `views.py` yang sesuai. Views.py akan melakukan rendering berdasarkan request sekaligus mengambil data dari database melalui `models.py` dan mengembalikan response berupa `<filename>.html (berkas html).`
@@ -326,7 +330,6 @@ Ketika client mengakses aplikasi Django melalui browser, browser menerima HTTP R
 Penggunaan virtual environmemt pada proyek Django sangat direkomendasikan karena virtual environment membuat lingkungan atau modul yang spesifik dan terisolasi. Artinya, setiap proyek memiliki virtual environment-nya masing-masing sehingga depedensi yang sudah dibuat tidak akan terpengaruh faktor luar (contohnya terjadi perubahan versi yang menyebabkan ketidakcocokan versi jika terjadi perubahan kode). 
 
 Sebenarnya pembuatan aplikasi web berbasis Django tanpa menggunakan virtual environment bisa-bisa saja (tetapi sangat tidak direkomendasikan) dan memungkinkan terjadi konflik versi (perlu mengunduh lagi versi Django yang sesuai). Virtual environment hanya berperan "membantu" dalam pengerjaan berbagai proyek Django, bukan sebagai keharusan.
-
 
 
 ## 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
@@ -344,3 +347,357 @@ MVVM (Model, View, ViewModel) merupakan konsep arsitektur dalam pembuatan aplika
 1. Model: Bagian yang berperan untuk mengelola data
 2. View: Berperan sebagai pengatur bagian informasi akan ditampilkan kepada penggunana
 3. ViewModel: Bagian yang berperan sebagai perantara model dan view, spesifiknya adalah mengelola data pada model sehingga dapat ditampilkan pada view.
+
+
+
+# <a id="2">Tugas 2</a>
+## 1. Apa perbedaan antara form POST dan form GET dalam Django?
+Form `POST` umumnya digunakan untuk menambahkan data dari suatu database melalui pengiriman data input (berbentuk request), jika request valid, maka database akan menambahkan data baru sesuai input. 
+
+Form `GET` umumnya digunakan untuk mengambil data dari database (server) ke user tanpa mengubah apapun yang ada di database 
+
+
+## 2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+XML (Extensible Markup Language) merupakan salah satu format data delivery yang membentuk struktur seperti tree yang dimulai dari root (sebagai parent), kemudian branch, sampai akhirnya pada leaves. XML dibuat sedemikian sepf-descriptive yang informasinya dibungkus di dalam tag. 
+
+JSON (JavaScript Object Notation) merupakan salah satu format data delivery yang membentuk struktur seperti dictionary yang juga dibuat sedemikan rupa agar self-describing. Data JSON disimpan pada key-value pair sehingga data delivery menggunakan JSON lebih ringan daripada bentuk tag pada XML. 
+
+HTML umumnya tidak digunakan untuk menyajikan data informatif, melainkan untuk menampilkan kerangka atau struktur dari halaman website dan data yang akan disajikan ke dan web tersebut. Maka dari itu, HTML lebih sering digunakan untuk menyajikan data yang akan dilihat langsung oleh client.
+
+
+## 3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+JSON lebih sering digunakan dalam pertukaran data antara aplikasi web modern adalah karena struktur dictionary pada JSON lebih sederhana oleh mesin karena menggunakan key-value pair. Selain itu, format JSON yang menggunakan text lebih mudah di-parsing daripada XML yang perlu menggunakan tag. Ditambah lagi, strukturnya yang sederhana membuat ukuran file JSON lebih kecil sehingga sering kali menjadi pilihan dalam format data delivery pada suatu aplikasi web.
+
+
+## 4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
+<details>
+  <summary>Persiapan awal sebelum membuat form: membuat kerangka base.html</summary>
+
+  1) Pastikan program sudah menjalankan environment, jika belum jalankan dengan command
+     ```
+     env\Scripts\activate.bat
+     ```
+  2) Buka berkas `urls.py` pada direktori `le_sunsette`, kemudian ubah path `main/` menjadi `''`
+      ```python
+      urlpatterns = [
+         path('', include('main.urls')),
+         path('admin/', admin.site.urls),
+      ]
+      ```
+   3) Buat direktori `templates` pada root folder, di dalamnya buat berkas bernama `base.html` dan isi dengan
+      ```html
+      {% load static %}
+      <!DOCTYPE html>
+      <html lang="en">
+         <head>
+            <meta charset="UTF-8" />
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+            />
+               <script src="https://cdn.tailwindcss.com"></script>
+         
+               <!-- font download -->
+               <link rel="preconnect" href="https://fonts.googleapis.com">
+               <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+               <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+               {% block meta %}
+               {% endblock meta %}
+         </head>
+
+         <body>
+            <header class="flex flex-col justify-center px-5 py-[100px] bg-gradient-to-r from-[#010413] to-[#0a1f2b] text-center align-center text-[#f5f5f5] gap-2" style="font-family: Lora, serif">
+               <h1 class="text-4xl font-semibold" >{{nama_aplikasi}}</h1>
+               <h1 class="text-[18px] text-gray-300 font-normal">Only serves authentic french cousine</h1>
+            </header>
+            
+            {% block content %}
+            {% endblock content %}
+
+            <footer class="flex flex-col px-[80px] font-semibold">
+               <p>Nama: {{nama_mahasiswa}}</p>
+               <p>Kelas: {{kelas_mahasiswa}}</p>
+            </footer>
+         </body>
+      </html>
+      ```
+   4) Hapus tag `header`, `footer`, dan `script` (yang menambahkan play CDN tailwind) pada `main.html` karena sudah dipindahkan ke base.html
+
+   5) Buka berkas `settings.py` pada direktori `le_sunsette`, tambahkan kode pada variabel `TEMPLATES`
+      ```python
+      ...
+      TEMPLATES = [
+         {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [BASE_DIR / 'templates'], # Tambahkan kode ini
+            'APP_DIRS': True,
+            ...
+         }
+      ]
+      ...
+      ```
+</details>
+
+<details>
+  <summary>Membuat input form untuk menambahkan objek model pada app sebelumnya</summary>
+
+   1) Buat berkas `forms.py` pada direktori `main`, isi dengan kode berikut
+      ```python
+      from django.forms import ModelForm
+      from main.models import Item
+
+      class ProductForm(ModelForm):
+         class Meta:
+         model = Item
+         fields = ["name", "amount", "description", "price"]
+      ```
+   2) Pada tahap ini saya juga menambahkan styling pada form menggunakan widgets (dapat ditambahkan di bawah line fields)
+      ```python
+      ...
+      widgets = {
+            "name": TextInput(attrs={
+                'class': 'min-w-[370px] border-2 focus:bg-gray-100 px-[12px] py-[6px]',
+            }),
+            "amount": NumberInput(attrs={
+                'class': 'min-w-[370px] border-2 focus:bg-gray-100 px-[12px] py-[6px]',
+                'min': 1
+            }),
+            "description": Textarea(attrs={
+                'class': 'min-w-[370px] max-h-[150px] border-2 focus:bg-gray-100 px-[12px] py-[6px]',
+            }),
+            "price": NumberInput(attrs={
+                'class': 'min-w-[370px] border-2 focus:bg-gray-100 px-[12px] py-[6px]',
+                'min': 0.01
+            })
+        }
+      ```
+   3) Buka berkas `views.py` pada direktori `main`, import kode berikut
+      ```python
+      from django.http import HttpResponseRedirect
+      from main.forms import ProductForm
+      from django.urls import reverse
+      ```
+   4) Buat fungsi baru bernama add_item sebagai berikut
+      ```python
+      def add_item(request):
+      form = ItemForm(request.POST or None)
+
+      if form.is_valid() and request.method == "POST":
+         form.save()
+         return HttpResponseRedirect(reverse('main:show_main'))
+
+      context = {
+         'form': form,
+         'nama_mahasiswa': 'William', #add additional context for add_item.html
+         'kelas_mahasiswa': 'PBP D', #add additional context for add_item.html
+         'nama_aplikasi': 'Le Sunsette', #add additional context for add_item.html
+
+         }
+      return render(request, "add_item.html", context)
+      ```
+   5) Buat berkas `add_item.html` pada subdirektori `main/templates` (routing akan diurus nanti), tambahkan kode berikut
+      ```html
+      {% extends 'base.html' %}
+
+      {% block content %}
+
+      <section class="flex flex-col px-[60px] py-[30px] gap-[20px] items-center">
+         <h1 class="text-2xl font-semibold justify-center">Add New Menu</h1>
+
+         <form method="POST">
+            {% csrf_token %}
+            <table class="'flex w-full">
+                  <tbody class="flex flex-col w-full">
+                     <tr>
+                        <td>
+                              <h1 class="font-medium">Name</h1>
+                        </td>
+                     </tr>
+            
+                     <tr class="mb-5">
+                        <td>
+                              {{form.name}}
+                        </td>
+                     </tr>
+            
+                     <tr>
+                        <td>
+                              <h1 class="font-medium">Amount</h1>
+                        </td>
+                     </tr>
+            
+                     <tr class="mb-5">
+                        <td>
+                              {{form.amount}}
+                        </td>
+                     </tr>
+
+                     <tr>
+                        <td>
+                              <h1 class="font-medium">Description</h1>
+                        </td>
+                     </tr>
+            
+                     <tr class="mb-5">
+                        <td>
+                              {{form.description}}
+                        </td>
+                     </tr>
+
+                     <tr>
+                        <td>
+                              <h1 class="font-medium">Price</h1>
+                        </td>
+                     </tr>
+            
+                     <tr class="mb-5">
+                        <td>
+                              {{form.price}}
+                        </td>
+                     </tr>
+                     
+                     <tr class="flex justify-center w-full bg-[#010413] text-[#f5f5f5] h-[35px] items-center rounded-[6px]">
+                        <td>
+                              <input type="submit" value="Add Menu"/>
+                        </td>
+                     </tr>
+                  </tbody>
+            </table>
+         </form>
+      </section>
+
+      {% endblock %}
+      ```
+   6) Ubah isi berkas `main.html` sehingga menyajikan tabel (pada tugas sebelumnya menyajikan card) serta tombol untuk menambahkan Item (styling bersifat opsional)
+      ```html
+      {% extends 'base.html' %}
+
+      {% block content %}
+
+      <main class="flex flex-col px-[80px] py-[50px] gap-[30px]">
+         <section class="flex text-[14px] justify-center">
+
+            <a href="{% url 'main:add_item' %}">
+                  <button class="bg-[#0a1f2b] text-[#f5f5f5] px-[24px] py-[12px] rounded-[6px] text-[16px]">
+                     Add Menu
+                  </button>
+            </a>
+         </section>
+
+         <!-- reference: https://fedingo.com/how-to-get-length-of-list-in-django-template/ -->
+         <h1 class="flex justify-center text-[20px] font-medium">We have {{menus|length}} unique menu(s) here</h1>
+
+         <table class="flex flex-col w-full border-gray-300 border-[1px] rounded-[12px] px-[25px] py-[20px]">
+            <thead class="flex flex-col w-full border-b-gray-300 border-b-[1px] pb-[20px] px-[12px]">
+                  <tr class="flex  text-center justify-center items-center">
+                     <th class="flex w-full justify-center">Name</th>
+                     <th class="flex w-full justify-center">Amount</th>
+                     <th class="flex w-full justify-center">Description</th>
+                     <th class="flex w-full justify-center">Price</th>
+                  </tr>
+            </thead>
+
+            <tbody class="flex flex-col w-full gap-[14px] pt-[20px] px-[12px]">
+                  {% for menu in menus %}
+                  <tr class="flex text-center justify-center items-center">
+                     <td class="flex w-full justify-center">{{menu.name}}</td>
+                     <td class="flex w-full justify-center">{{menu.amount}}</td>
+                     <td class="flex w-full justify-center">{{menu.description}}</td>
+                     <td class="flex w-full justify-center">${{menu.price}}</td>
+                  </tr>
+                  {% endfor %}
+            </tbody>
+         </table>
+      </main>
+
+      {% endblock content %}
+      ```
+</details>
+
+<details>
+  <summary>Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID</summary>
+
+  1) Buka berkas `views.py` pada direktori `main`, tambahkan fungsi sesuai ketentuan, hasil akhirnya akan menjadi
+      ```python
+      from django.shortcuts import render
+      from django.http import HttpResponseRedirect
+      from main.forms import ItemForm
+      from django.urls import reverse
+      from main.models import Item
+      from django.http import HttpResponse
+      from django.core import serializers
+
+      # Create your views here.
+      def show_main(request):
+         items = Item.objects.all()
+
+         context = {
+            'nama_mahasiswa': 'William',
+            'kelas_mahasiswa': 'PBP D', 
+            'nama_aplikasi': 'Le Sunsette',
+            'menus': items
+         }
+         return render(request, "main.html", context)
+
+      def add_item(request):
+         form = ItemForm(request.POST or None)
+
+         if form.is_valid() and request.method == "POST":
+            form.save()
+            return HttpResponseRedirect(reverse('main:show_main'))
+
+         context = {
+            'form': form,
+            'nama_mahasiswa': 'William', #add additional context for add_item.html
+            'kelas_mahasiswa': 'PBP D', #add additional context for add_item.html
+            'nama_aplikasi': 'Le Sunsette', #add additional context for add_item.html
+
+            }
+         return render(request, "add_item.html", context)
+
+      def show_xml(request):
+         data = Item.objects.all()
+         return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+         
+      def show_json(request):
+         data = Item.objects.all()
+         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+      def show_xml_by_id(request, id):
+         data = Item.objects.filter(pk=id)
+         return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+      def show_json_by_id(request, id):
+         data = Item.objects.filter(pk=id)
+         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+      ```
+</details>
+
+<details>
+  <summary>Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2</summary>
+
+   1) Buka berkas `urls.py` pada direktori `main`, import semua fungsi yang sudah dibuat
+      ```python
+      from main.views import show_main, add_item, show_xml, show_json, show_xml_by_id, show_json_by_id 
+      ```
+   2) Tambahkan fungsi yang sudah di-import ke dalam variabel `urlpatterns` sehingga menjadi
+      ```python
+      urlpatterns = [
+      path('', show_main, name='show_main'),
+      path('add_item', add_item, name='add_item'),
+      path('xml/', show_xml, name='show_xml'), 
+      path('json/', show_json, name='show_json'),
+      path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
+      path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
+      ]
+      ```
+</details>
+
+## 5. Screenshot Postman
+1) HTML
+
+
+
+
+

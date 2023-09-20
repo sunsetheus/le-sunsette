@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="flex flex-col px-[60px] py-[30px] gap-[20px] items-center">
+    <h1 class="text-2xl font-semibold justify-center">Add New Menu</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <table class="'flex w-full">
+            <tbody class="flex flex-col w-full">
+                <tr>
+                    <td>
+                        <h1 class="font-medium">Name</h1>
+                    </td>
+                </tr>
+        
+                <tr class="mb-5">
+                    <td>
+                        {{form.name}}
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        <h1 class="font-medium">Amount</h1>
+                    </td>
+                </tr>
+        
+                <tr class="mb-5">
+                    <td>
+                        {{form.amount}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h1 class="font-medium">Description</h1>
+                    </td>
+                </tr>
+        
+                <tr class="mb-5">
+                    <td>
+                        {{form.description}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h1 class="font-medium">Price</h1>
+                    </td>
+                </tr>
+        
+                <tr class="mb-5">
+                    <td>
+                        {{form.price}}
+                    </td>
+                </tr>
+                
+                <tr class="flex justify-center w-full bg-[#010413] text-[#f5f5f5] h-[35px] items-center rounded-[6px]">
+                    <td>
+                        <input type="submit" value="Add Menu"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</section>
+
+{% endblock %}
