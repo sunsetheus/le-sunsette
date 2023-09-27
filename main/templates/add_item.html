@@ -2,6 +2,11 @@
 
 {% block content %}
 
+<header class="flex flex-col justify-center px-5 py-[100px] bg-gradient-to-r from-[#010413] to-[#0a1f2b] text-center align-center text-[#f5f5f5] gap-2" style="font-family: Lora, serif">
+    <h1 class="text-4xl font-semibold" >{{nama_aplikasi}}</h1>
+    <h1 class="text-[18px] text-gray-300 font-normal">Only serves authentic french cousine</h1>
+</header>
+
 <section class="flex flex-col px-[60px] py-[30px] gap-[20px] items-center">
     <h1 class="text-2xl font-semibold justify-center">Add New Menu</h1>
 
@@ -66,5 +71,10 @@
         </table>
     </form>
 </section>
+
+<footer class="flex flex-col px-[80px] font-semibold">
+    <p>Nama: {{nama_mahasiswa}}</p>
+    <p>Kelas: {{kelas_mahasiswa}}</p>
+</footer>
 
 {% endblock %}

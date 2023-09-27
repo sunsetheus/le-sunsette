@@ -2,15 +2,28 @@
 
 {% block content %}
 
+<header class="flex flex-col justify-center px-5 py-[100px] bg-gradient-to-r from-[#010413] to-[#0a1f2b] text-center align-center text-[#f5f5f5] gap-2" style="font-family: Lora, serif">
+    <h1 class="text-4xl font-semibold" >{{nama_aplikasi}}</h1>
+    <h1 class="text-[18px] text-gray-300 font-normal">Only serves authentic french cousine</h1>
+</header>
+
 <main class="flex flex-col px-[80px] py-[50px] gap-[30px]">
-    <section class="flex text-[14px] justify-center">
+    <section class="flex text-[14px] justify-between">
 
         <a href="{% url 'main:add_item' %}">
             <button class="bg-[#0a1f2b] text-[#f5f5f5] px-[24px] py-[12px] rounded-[6px] text-[16px]">
                 Add Menu
             </button>
         </a>
+
+        <a href="{% url 'main:logout' %}">
+            <button>
+                Logout
+            </button>
+        </a>
     </section>
+
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
 
     <!-- reference: https://fedingo.com/how-to-get-length-of-list-in-django-template/ -->
     <h1 class="flex justify-center text-[20px] font-medium">We have {{menus|length}} unique menu(s) here</h1>
@@ -22,6 +35,7 @@
                 <th class="flex w-full justify-center">Amount</th>
                 <th class="flex w-full justify-center">Description</th>
                 <th class="flex w-full justify-center">Price</th>
+                <th class="flex w-full justify-center">Axtion</th>
             </tr>
         </thead>
 
@@ -29,14 +43,38 @@
             {% for menu in menus %}
             <tr class="flex text-center justify-center items-center">
                 <td class="flex w-full justify-center">{{menu.name}}</td>
-                <td class="flex w-full justify-center">{{menu.amount}}</td>
+                <td class="flex w-full justify-center gap-[8px]">
+                    <a href="{% url 'main:decrement_item' menu.id %}">
+                        <button class="w-[15px] bg-red-500">-</button>
+                    </a>
+
+                    {{menu.amount}}
+
+                    <a href="{% url 'main:increment_item' menu.id %}">
+                        <button class="w=[15px] bg-green-500">+</button>
+                    </a>
+                
+                </td>
                 <td class="flex w-full justify-center">{{menu.description}}</td>
                 <td class="flex w-full justify-center">${{menu.price}}</td>
+                <td class="flex w-full justify-center">
+                    <a href="{% url 'main:delete_item' menu.id %}">
+                        <button>Delete</button>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
+
 </main>
+
+<footer class="flex flex-col px-[80px] pb-[40px] font-semibold">
+    <p>Nama: {{nama_mahasiswa}}</p>
+    <p>Kelas: {{kelas_mahasiswa}}</p>
+    <p>Maaf UI-nya setengah-setengah, mahasiswa ini sedang hectic TP SDA :D</p>
+</footer>
 
 {% endblock content %}
 

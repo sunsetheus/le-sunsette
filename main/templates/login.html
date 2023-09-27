@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<main class="flex bg-gradient-to-r from-[#010413] to-[#0a1f2b] h-screen text-[#f5f5f5] justify-center items-center">
+    <div class="flex rounded-[12px] bg-white bg-opacity-10 justify-evenly items-center">
+        <div class="flex flex-col items-center w-[400px] h-[500px] py-[50px] px-[40px] gap-[40px]">
+            <h1 style="font-family: Lora, serif" class="text-4xl">Login</h1>
+
+            <form method="POST" action="" class="w-full">
+                {% csrf_token %}
+                <table class="flex w-full">
+                    <tr>
+                        <td>Username</td>
+                    </tr>
+
+                    <tr class="flex pb-[20px]">
+                        <td><input type="text" name="username" placeholder="Username" class="form-control flex w-[319px] px-[8px] py-[4px]"></td>
+                    </tr>
+                            
+                    <tr>
+                        <td>Password: </td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                    </tr>
+
+
+                </table>
+
+
+                <input class="btn login_btn" type="submit" value="Login">
+
+
+
+            </form>
+        </div>
+
+        <div class="flex flex-col w-[400px] h-[500px]">
+            <h1>New here?</h1>
+            <p>Register now</p>
+            <p>and maintain your stock</p>
+            <p>effortlessly!</p>
+
+            Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+
+        </div>
+
+
+
+        
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+        
+
+</div>
+    </div>
+
+    
+
+{% endblock content %}
