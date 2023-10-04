@@ -930,7 +930,7 @@ Sebenarnya penggunaan cookies secara default masih terdapat celah untuk dilakuka
 # <a id="5">Tugas 5</a>
 ## 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 Manfaat dari element selector adalah memungkinkan kita untuk mengubah styling untuk semua elemen dengan tag HTML yang sama (seperti tag a, tag p dan sebagainya).<br>
-Waktu yang tepat untuk menggunakan element selector adalah ketika kita ingin mengubah semua properti suatu tag html secara global atau membuat design sedault suatu tag HTML. Misalnya membuat default jenis font dan warna dari tag <p>, kita dapat melakukan styling dengan element selector (teraplikasi secara global untuk tag p) sehingga tidak diperlukan styling yang berulang pada setiap tag p (jika menggunakan inline)
+Waktu yang tepat untuk menggunakan element selector adalah ketika kita ingin mengubah semua properti suatu tag html secara global atau membuat design sedault suatu tag HTML. Misalnya membuat default jenis font dan warna dari tag p, kita dapat melakukan styling dengan element selector (teraplikasi secara global untuk tag p) sehingga tidak diperlukan styling yang berulang pada setiap tag p (jika menggunakan inline)
 
 
 ## 2. Jelaskan HTML5 Tag yang kamu ketahui.
