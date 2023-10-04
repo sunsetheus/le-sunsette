@@ -929,27 +929,27 @@ Sebenarnya penggunaan cookies secara default masih terdapat celah untuk dilakuka
 
 # <a id="5">Tugas 5</a>
 ## 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
-Manfaat dari element selector adalah memungkinkan kita untuk mengubah styling untuk semua elemen dengan tag HTML yang sama (seperti tag <a>, tag <p> dan sebagainya).<br>
+Manfaat dari element selector adalah memungkinkan kita untuk mengubah styling untuk semua elemen dengan tag HTML yang sama (seperti tag a, tag p dan sebagainya).<br>
 Waktu yang tepat untuk menggunakan element selector adalah ketika kita ingin mengubah semua properti suatu tag html secara global atau membuat design sedault suatu tag HTML. Misalnya membuat default jenis font dan warna dari tag <p>, kita dapat melakukan styling dengan element selector (teraplikasi secara global untuk tag p) sehingga tidak diperlukan styling yang berulang pada setiap tag p (jika menggunakan inline)
 
 
 ## 2. Jelaskan HTML5 Tag yang kamu ketahui.
 HTML5 Tag yang saya ketahui
-<div>: umumnya digunakan sebagai container (pemisah suatu bagian dengan bagian lainnya)
-<h1> sampai <h6>: sebagai heading, ukuran dari besar (1) sampai kecil (6)
-<p>: membuat paragraf
-<a>: menampilkan suatu link
-<button>: membuat tombol
-<img>: menampilkan gambar
-<section>: (semantic) container untuk suatu bagian yang identik
-<table>: membuat tabel
-<input>: membuat input box 
-<footer>: (semantic) container untuk footer
-<main>: (semantic) container untuk komponen utama
-<li>: mendefiniskan data dari suatu list
-<ul>: membuat list tak terurut
-<ol>: membuat list terurut
-<br>: membuat line break (1 kali)
+div: umumnya digunakan sebagai container (pemisah suatu bagian dengan bagian lainnya)
+h1 sampai h6: sebagai heading, ukuran dari besar (1) sampai kecil (6)
+p: membuat paragraf
+a: menampilkan suatu link
+button: membuat tombol
+img: menampilkan gambar
+section: (semantic) container untuk suatu bagian yang identik
+table: membuat tabel
+input: membuat input box 
+footer: (semantic) container untuk footer
+main: (semantic) container untuk komponen utama
+li: mendefiniskan data dari suatu list
+ul: membuat list tak terurut
+ol: membuat list terurut
+br: membuat line break (1 kali)
 
 
 ## 3. Jelaskan perbedaan antara margin dan padding.
