@@ -5,6 +5,7 @@
 1. [Tugas 2](#2)
 2. [Tugas 3](#3)
 3. [Tugas 4](#4)
+4. [Tugas 5](#5)
 
 # <a id="2">Tugas 2</a>
 ## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) 
@@ -923,3 +924,45 @@ Sebenarnya penggunaan cookies secara default masih terdapat celah untuk dilakuka
    ...
    ```
 </details>
+
+
+
+# <a id="5">Tugas 5</a>
+## 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+Manfaat dari element selector adalah memungkinkan kita untuk mengubah styling untuk semua elemen dengan tag HTML yang sama (seperti tag <a>, tag <p> dan sebagainya).<br>
+Waktu yang tepat untuk menggunakan element selector adalah ketika kita ingin mengubah semua properti suatu tag html secara global atau membuat design sedault suatu tag HTML. Misalnya membuat default jenis font dan warna dari tag <p>, kita dapat melakukan styling dengan element selector (teraplikasi secara global untuk tag p) sehingga tidak diperlukan styling yang berulang pada setiap tag p (jika menggunakan inline)
+
+
+## 2. Jelaskan HTML5 Tag yang kamu ketahui.
+HTML5 Tag yang saya ketahui
+<div>: umumnya digunakan sebagai container (pemisah suatu bagian dengan bagian lainnya)
+<h1> sampai <h6>: sebagai heading, ukuran dari besar (1) sampai kecil (6)
+<p>: membuat paragraf
+<a>: menampilkan suatu link
+<button>: membuat tombol
+<img>: menampilkan gambar
+<section>: (semantic) container untuk suatu bagian yang identik
+<table>: membuat tabel
+<input>: membuat input box 
+<footer>: (semantic) container untuk footer
+<main>: (semantic) container untuk komponen utama
+<li>: mendefiniskan data dari suatu list
+<ul>: membuat list tak terurut
+<ol>: membuat list terurut
+<br>: membuat line break (1 kali)
+
+
+## 3. Jelaskan perbedaan antara margin dan padding.
+Padding merupakan ruang dari border suatu elemen ke arah dalam border elemen tersebut. Margin merupakan ruang dari border suatu elemen ke arah luar border elemen tersebut <br>
+Perbedaan ini akan terlihat lebih jelas ketika kita memberikan warna latar pada text dan meng-edit padding dan marginnya. Warna latar text akan di-apply pada arah dalam border sehingga ukuran warna latar dapat diperbesar melalui penambahan padding, sedangkan penambahan margin tidak memperbedar ukuran warna latar, melainkan hanya memperbesar jarak elemen tersebut dengan area luarnya (dari border) atau bisa dikatakan jarak dengan elemen lainnya.
+
+## 4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+CSS Tailwind merupakan framework CSS yang memberikan flesibilitas pada utilitas design, artinya framework tailwind memberikan keleluasaan dalam membuat kostumiasasi desain. Bootstrap merupakan framework CSS yang memberikan pre-built design system (komponen html yang sudah didesain konsisten) sehingga lebih siap digunakan.
+
+Karrna utilitas design tailwind lebih fleksibel ketimbang bootstrap, tailwind lebih cocok digunakan pada proyek yang memerlukan kostumisasi styling yang kompleks. Bootstrap lebih cocok pada proyek yang cepat, praktis, konsisten dan tidak memerlukan kostumisasi kompleks karena pre-built stylingnya yang sudah siap digunakan.
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1) Styling sudah ada dari sblm-sblmnya, tapi intinya di base.html tambahkan tailwind CDN cek tag script + baca dokumentasi tailwind
+2) design tag html dengan class (baca dokumentasi syntaxnya :D)
+3) (AGAK KESUSAHAN MENGINTEGRASI FILE CSS, MUNGKIN KARENA PAKE CDN), jadi buatnya internal css di base.html (untuk soal bonus)
+4) untuk eksternal css soon akan dicoba coba apakah bisa / tidak

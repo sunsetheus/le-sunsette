@@ -8,6 +8,12 @@
             content="width=device-width, initial-scale=1.0"
         />
 
+        <link rel="stylesheet" href="{% ../static 'styles/form.css' %}">
+        
+        {% block styles %}
+
+        {% endblock styles %}
+
         <script src="https://cdn.tailwindcss.com"></script>
     
         <!-- font download -->
@@ -15,8 +21,24 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&family=Poppins:wght@500&display=swap" rel="stylesheet">
         
-        {% block meta %}
-        {% endblock meta %}
+        <style>
+            /* TESTING INTERNAL CSS */
+            h1{
+                color: red;
+            }
+
+            /* BUAT BONUS */
+            .row:last-child {
+                background: rgb(164, 164, 228);
+            }
+        </style>
+        <!-- {% block meta %}
+
+        {% endblock meta %} -->
+
+
+
+
         
     </head>
 

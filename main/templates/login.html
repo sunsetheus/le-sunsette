@@ -6,9 +6,9 @@
 
 {% block content %}
 
-<main class="flex bg-gradient-to-r from-[#010413] to-[#0a1f2b] h-screen text-[#f5f5f5] justify-center items-center">
-    <div class="flex rounded-[12px] bg-white bg-opacity-10 justify-evenly items-center">
-        <div class="flex flex-col items-center w-[400px] h-[500px] py-[50px] px-[40px] gap-[40px]">
+<main class="flex bg-[#010413] h-screen text-[#f5f5f5] justify-center items-center">
+    <div class="flex rounded-[12px] bg-white bg-opacity-[0.12]  items-center w-[650px] h-[400px]">
+        <div class="flex flex-col items-center py-[50px] px-[40px] gap-[40px]">
             <h1 style="font-family: Lora, serif" class="text-4xl">Login</h1>
 
             <form method="POST" action="" class="w-full">
@@ -29,19 +29,14 @@
                     <tr>
                         <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
                     </tr>
-
-
                 </table>
 
-
                 <input class="btn login_btn" type="submit" value="Login">
-
-
 
             </form>
         </div>
 
-        <div class="flex flex-col w-[400px] h-[500px]">
+        <div class="flex flex-col">
             <h1>New here?</h1>
             <p>Register now</p>
             <p>and maintain your stock</p>
@@ -50,9 +45,6 @@
             Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
 
         </div>
-
-
-
         
 
     {% if messages %}

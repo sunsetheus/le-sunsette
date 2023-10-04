@@ -41,7 +41,7 @@
 
         <tbody class="flex flex-col w-full gap-[14px] pt-[20px] px-[12px]">
             {% for menu in menus %}
-            <tr class="flex text-center justify-center items-center">
+            <tr class="flex text-center justify-center items-center row">
                 <td class="flex w-full justify-center">{{menu.name}}</td>
                 <td class="flex w-full justify-center gap-[8px]">
                     <a href="{% url 'main:decrement_item' menu.id %}">
@@ -73,7 +73,7 @@
 <footer class="flex flex-col px-[80px] pb-[40px] font-semibold">
     <p>Nama: {{nama_mahasiswa}}</p>
     <p>Kelas: {{kelas_mahasiswa}}</p>
-    <p>Maaf UI-nya setengah-setengah, mahasiswa ini sedang hectic TP SDA :D</p>
+    <p>(yang penting sudah ada styling :D)</p>
 </footer>
 
 {% endblock content %}
