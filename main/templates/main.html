@@ -8,13 +8,12 @@
 </header>
 
 <main class="flex flex-col px-[80px] py-[50px] gap-[30px]">
+
+    <p> login username: {{user}}</p>
     <section class="flex text-[14px] justify-between">
 
-        <a href="{% url 'main:add_item' %}">
-            <button class="bg-[#0a1f2b] text-[#f5f5f5] px-[24px] py-[12px] rounded-[6px] text-[16px]">
-                Add Menu
-            </button>
-        </a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add MENUU</button>
+
 
         <a href="{% url 'main:logout' %}">
             <button>
@@ -26,48 +25,48 @@
     <h5>Sesi terakhir login: {{ last_login }}</h5>
 
     <!-- reference: https://fedingo.com/how-to-get-length-of-list-in-django-template/ -->
-    <h1 class="flex justify-center text-[20px] font-medium">We have {{menus|length}} unique menu(s) here</h1>
+    <!-- <h1 class="flex justify-center text-[20px] font-medium">We have {{menus|length}} unique menu(s) here</h1> -->
 
-    <table class="flex flex-col w-full border-gray-300 border-[1px] rounded-[12px] px-[25px] py-[20px]">
-        <thead class="flex flex-col w-full border-b-gray-300 border-b-[1px] pb-[20px] px-[12px]">
-            <tr class="flex  text-center justify-center items-center">
-                <th class="flex w-full justify-center">Name</th>
-                <th class="flex w-full justify-center">Amount</th>
-                <th class="flex w-full justify-center">Description</th>
-                <th class="flex w-full justify-center">Price</th>
-                <th class="flex w-full justify-center">Axtion</th>
-            </tr>
-        </thead>
-
-        <tbody class="flex flex-col w-full gap-[14px] pt-[20px] px-[12px]">
-            {% for menu in menus %}
-            <tr class="flex text-center justify-center items-center row">
-                <td class="flex w-full justify-center">{{menu.name}}</td>
-                <td class="flex w-full justify-center gap-[8px]">
-                    <a href="{% url 'main:decrement_item' menu.id %}">
-                        <button class="w-[15px] bg-red-500">-</button>
-                    </a>
-
-                    {{menu.amount}}
-
-                    <a href="{% url 'main:increment_item' menu.id %}">
-                        <button class="w=[15px] bg-green-500">+</button>
-                    </a>
-                
-                </td>
-                <td class="flex w-full justify-center">{{menu.description}}</td>
-                <td class="flex w-full justify-center">${{menu.price}}</td>
-                <td class="flex w-full justify-center">
-                    <a href="{% url 'main:delete_item' menu.id %}">
-                        <button>Delete</button>
-                    </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div id="cards" class="flex flex-wrap gap-3">
+        <!-- Use AJAX -->
+      </div>
 
 
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="col-form-label">Amount:</label>
+                            <input type="number" class="form-control" id="amount" name="amount"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price"></input>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <footer class="flex flex-col px-[80px] pb-[40px] font-semibold">
@@ -75,6 +74,93 @@
     <p>Kelas: {{kelas_mahasiswa}}</p>
     <p>(yang penting sudah ada styling :D)</p>
 </footer>
+
+<script>
+    async function getItems() {
+        return fetch("{% url 'main:get_item_json' %}").then((res) => res.json())
+    }
+
+    async function refreshProducts() {
+        document.getElementById("cards").innerHTML = ""
+        const items = await getItems()
+        let htmlString = ``
+        items.forEach((item) => {
+            htmlString += `\n<section class="flex min-w-[200x] min-w-[150px]">
+        <div class="flex flex-col border-[1px] rounded-[12px] p-[12px] border-gray-400 justify-center max-w-[300px]">
+            <div>
+                <div class="flex justify-between text-[1.2rem] font-semibold" style="font-family: Lora, serif">
+                    <h2 class="">${item.fields.name}</h2>
+                    <h2>${item.fields.price}</h2>
+                </div>
+
+                <p class="text-[12px] font-semibold">Current stock: ${item.fields.amount}</p>
+                <p class="text-[14px] pt-[10px]">${item.fields.description}</p>
+            </div>
+
+            <button onclick="incItem(${item.pk})" class="w-10 bg-green-500">
+              ++
+            </button>
+
+            <button onclick="decItem(${item.pk})" class="w-10 bg-blue-500">
+              --
+            </button>
+
+            <button onclick="delItem(${item.pk})" class="w-10 bg-red-500">
+              del
+            </button>
+        </section>` 
+        })
+        
+        document.getElementById("cards").innerHTML = htmlString
+    }
+
+    refreshProducts()
+
+    function addProduct() {
+        console.log("tes")
+        fetch("{% url 'main:add_item_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshProducts)
+
+        console.log(new FormData(document.querySelector('#form')))
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    function incItem(id) {
+      const formData = new FormData()
+      formData.append("id", id)
+      fetch("{% url 'main:increment_item_ajax' %}", {
+        method: "POST",
+        body: formData
+      }).then(refreshItems)
+      return false
+    }
+
+    function decItem(id) {
+      const formData = new FormData()
+      formData.append("id", id)
+      fetch("{% url 'main:decrement_item_ajax' %}", {
+        method: "POST",
+        body: formData
+      }).then(refreshItems)
+      return false
+    }
+
+    function delItem(id) {
+      const formData = new FormData()
+      formData.append("id", id)
+      fetch("{% url 'main:delete_item_ajax' %}", {
+        method: "POST",
+        body: formData
+      }).then(refreshItems)
+      return false
+    }
+
+    document.getElementById("button_add").onclick = addProduct
+</script>
 
 {% endblock content %}
 

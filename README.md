@@ -6,6 +6,7 @@
 2. [Tugas 3](#3)
 3. [Tugas 4](#4)
 4. [Tugas 5](#5)
+5. [Tugas 6](#6)
 
 # <a id="2">Tugas 2</a>
 ## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) 
@@ -966,3 +967,48 @@ Karrna utilitas design tailwind lebih fleksibel ketimbang bootstrap, tailwind le
 2) design tag html dengan class (baca dokumentasi syntaxnya :D)
 3) (AGAK KESUSAHAN MENGINTEGRASI FILE CSS, MUNGKIN KARENA PAKE CDN), jadi buatnya internal css di base.html (untuk soal bonus)
 4) untuk eksternal css soon akan dicoba coba apakah bisa / tidak
+
+
+
+# <a id="6">Tugas 6</a>
+## 1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Asynchronous programming merupakan pemrograman yang berlajan secara asinkronus, artinya jalannya suatu program tidak bergantung pada selesainya program sebelumnya sehingga program dapat menjalankan beberapa perintah dalam 1 waktu (karena tidak menunggu program sebelumnya selesai)
+
+Synchronous programming merupakan pemrograman yang berjalan secara sinkronus, artinya artinya jalannya suatu program bergantung pada selesainya program sebelumnya sehingga program tidak dapat menjalankan beberapa perintah dalam 1 waktu (karena perlu menunggu program sebelumnya selesai)
+
+## 2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Event driven programming adalah pemrograman yang berkonsep pada kerja event tertentu yang dilakukan pleh user. Beberapa event yang dapat dilakukan user seperti menekan tombol, klik mouse, melakukan hover, dan sebabagainya.
+
+Contoh penerapannya
+document.getElementById("button_add").onclick = addProduct
+
+## 3. Jelaskan penerapan asynchronous programming pada AJAX.
+Penerapan Asynchronous programming pada AJAX adalah ketika melakukan XMLHTTPRequest yang responsenya  bersifst asynchronous sehingga tidak perlu menunggu request sudah dapat baru programnya kembali berjalan (kasihan user jika harus begitu).
+
+## 4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+JQuery sudah menjadi standar untuk "fetch" karena sudah ada dari awal pengembangan web dimulai, meskipun demikian, jika kita dapat menggunakan bawaan java langsung (fetch api), kita tidak perlu (harus) mebggunakan library lain
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Implementasi
+1. membust routing get_item_json dan add_item_ajax pada views.py
+2. membuat tag script pada main.html lalu tambahkan fungsi askinkronus getItems untuk fetching data item
+3. buat fungsi refresh yang sekaligus mendefine struktur (dan styling) dari card
+4. menambahkan modal
+5. tambahkan fungsi yang diperlukan untuk ajax (delete, inc, dec) di views.py, lalu tambahkan ke urls.py
+6. tambahakan fungsi dan logicnya ke tag script (handle fungsi yg ingin di pass ke views)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
