@@ -13,7 +13,7 @@
 <details>
   <summary>Set up repo</summary>
 
-  1) Buat repository Github bernama `le-sunsette` dengan visibilitas public dan pilih penambahan file Readme.md
+  1)  Buat repository Github bernama `le-sunsette` dengan visibilitas public dan pilih penambahan file Readme.md
   2) Buat file bernama `.gitignore` yang berisi:
      ```python
      # Django
